@@ -38,4 +38,9 @@ class CaseStudy extends Model
         return Framework::where('status', 1)->get()->pluck('name', 'id');
     }
 
+    public static function getCaseStudyById( $id )
+    {
+        return self::where('id', $id)->first();
+    }
+
 }

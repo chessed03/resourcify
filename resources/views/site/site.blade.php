@@ -2,6 +2,7 @@
 @section('content')
 
     <div>
+
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
 
@@ -95,12 +96,18 @@
 
                 <div class="row featurette">
                     <div class="col-md-7 {{ ( ($key % 2) == 0 ) ? 'order-md-2' : '' }}">
-                        <h2 class="featurette-heading">{{ $case->name }}<span class="text-muted"> {{ $case->title }}</span></h2>
-                        <p class="lead">{{ $case->description }}</p>
+                        <h2 class="featurette-heading">{{ $case->title }}<span class="text-muted"> {{ $case->subtitle }}</span></h2>
+                        <p class="lead">{{ $case->challenge }}</p>
+
+                        <a href="{{ route('case-study', ['id' => $case->id]) }}" class="btn btn-success" type="button" >Read more</a>
                     </div>
                     <div class="col-md-5">
+
                         <img src="{{ URL::asset("storage/{$case->image}") }}" class="featurette-image img-fluid mx-auto" width="500" height="500" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+
                     </div>
+
+
                 </div>
 
             @endforeach
