@@ -17,7 +17,7 @@ class CarouselImageResource extends Resource
 {
     protected static ?string $model = CarouselImage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-photograph';
 
     public static function getEloquentQuery(): Builder
     {

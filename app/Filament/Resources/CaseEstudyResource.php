@@ -17,7 +17,7 @@ class CaseEstudyResource extends Resource
 {
     protected static ?string $model = CaseEstudy::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
 
     public static function getEloquentQuery(): Builder
     {

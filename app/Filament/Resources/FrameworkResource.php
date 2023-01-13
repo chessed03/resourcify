@@ -17,7 +17,7 @@ class FrameworkResource extends Resource
 {
     protected static ?string $model = Framework::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
     public static function getEloquentQuery(): Builder
     {
