@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CaseEstudyResource\Pages;
-use App\Filament\Resources\CaseEstudyResource\RelationManagers;
-use App\Models\CaseEstudy;
+use App\Filament\Resources\CaseStudyResource\Pages;
+use App\Filament\Resources\CaseStudyResource\RelationManagers;
+use App\Models\CaseStudy;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CaseEstudyResource extends Resource
+class CaseStudyResource extends Resource
 {
-    protected static ?string $model = CaseEstudy::class;
+    protected static ?string $model = CaseStudy::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
 
@@ -28,16 +28,24 @@ class CaseEstudyResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('title')->required(),
-                Forms\Components\TextInput::make('description')->required(),
-                Forms\Components\TextInput::make('challenge')->required(),
-                Forms\Components\TextInput::make('solution')->required(),
-                Forms\Components\TextInput::make('technology')->required(),
-                Forms\Components\TextInput::make('content')->required(),
+                Forms\Components\TextInput::make('subtitle')->required(),
+                Forms\Components\Textarea::make('challenge')->required(),
+                Forms\Components\Textarea::make('solution')->required(),
+                Forms\Components\Builder::make('technology')
+                    ->blocks([
+                        Forms\Components\Builder\Block::make('languages')
+                            ->schema([
+                                Forms\Components\Select::make('languages')->multiple()->options( fn ($record) => CaseStudy::selectItemsLanguages() ),
+                            ]),
+                        Forms\Components\Builder\Block::make('frameworks')
+                            ->schema([
+                                Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => CaseStudy::selectItemsFrameworks() ),
+                            ]),
+                    ]),
                 Forms\Components\FileUpload::make('image')->directory('case-study-images')->image(),
                 Forms\Components\FileUpload::make('images')->multiple()->directory('case-study-images')->image(),
-                Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled()
+                Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled(),
             ]);
     }
 
@@ -64,7 +72,7 @@ class CaseEstudyResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageCaseEstudies::route('/'),
+            'index' => Pages\ManageCaseStudies::route('/'),
         ];
     }
 }

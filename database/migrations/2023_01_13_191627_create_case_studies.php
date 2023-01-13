@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('case_estudies', function (Blueprint $table) {
+        Schema::create('case_studies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('title');
-            $table->string('description');
-            $table->string('challenge');
-            $table->string('solution');
-            $table->string('technology');
-            $table->text('content');
+            $table->string('subtitle');
+            $table->text('challenge');
+            $table->text('solution');
+            $table->json('technology');
             $table->string('image');
             $table->json('images');
             $table->smallInteger('status')->default(1);
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('case_estudies');
+        Schema::dropIfExists('case_studies');
     }
 };
