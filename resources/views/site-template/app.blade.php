@@ -34,6 +34,8 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('site-template/dist/site/carousel.css') }}" rel="stylesheet">
 
+    @livewireStyles
+
 </head>
 <body>
 
@@ -79,6 +81,6 @@
 
 <script src="{{ asset('site-template/dist/js/bootstrap.bundle.min.js') }}"></script>
 
-
+@livewireScripts
 </body>
 </html>
