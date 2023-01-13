@@ -41,5 +41,20 @@ class Site extends Model
 
     }
 
+    public static function getLanguages()
+    {
+        $result = null;
+
+        $query = Language::where('status', 1)->get();
+
+        if ( $query ) {
+
+            $result = $query;
+
+        }
+
+        return $result;
+    }
+
 
 }

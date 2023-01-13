@@ -14,9 +14,12 @@ class SiteController extends Controller
 
         $caseStudies    = Site::getCaseStudies();
 
+        $languajes      = Site::getLanguages();
+
         return view('site.site', [
             'carouselImages' => $carouselImages,
-            'caseStudies'    => $caseStudies
+            'caseStudies'    => $caseStudies,
+            'languages'      => $languajes
         ]);
     }
 
