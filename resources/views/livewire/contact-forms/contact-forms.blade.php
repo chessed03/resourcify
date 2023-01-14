@@ -19,22 +19,25 @@
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="names" class="form-label">First name</label>
-                                        <input wire:model="names" type="text" class="form-control" id="names" placeholder="" value="" required>
+                                        <input wire:model="names" type="text" class="form-control" id="names" placeholder="Names" required>
+                                        @error('names') <span class="error text-danger">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="surnames" class="form-label">Last name</label>
-                                        <input wire:model="surnames" type="text" class="form-control" id="surnames" placeholder="" value="" required>
+                                        <input wire:model="surnames" type="text" class="form-control" id="surnames" placeholder="Last name" required>
+                                        @error('surnames') <span class="error text-danger">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div class="col-6">
                                         <label for="contact_number" class="form-label">Phone</label>
-                                        <input wire:model="contact_number" type="text" class="form-control" id="contact_number" placeholder="1234" required>
+                                        <input wire:model="contact_number" type="text" class="form-control" id="contact_number" placeholder="1234">
                                     </div>
 
                                     <div class="col-6">
                                         <label for="email_address" class="form-label">Email</label>
-                                        <input wire:model="email_address" type="email" class="form-control" id="email_address" placeholder="you@example.com">
+                                        <input wire:model="email_address" type="email" class="form-control" id="email_address" placeholder="you@example.com" required>
+                                        @error('email_address') <span class="error text-danger">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div class="col-12">
@@ -44,7 +47,8 @@
 
                                     <div class="col-12">
                                         <label for="message" class="form-label">Mesasage</label>
-                                        <textarea wire:model="message" type="text" class="form-control" id="message" placeholder="message" required></textarea>
+                                        <textarea wire:model="message" type="text" class="form-control" id="message" placeholder="message"></textarea>
+                                        @error('message') <span class="error text-danger">{{ $message }}</span> @enderror
                                     </div>
 
                                 </div>
