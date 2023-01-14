@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class ContacForm extends Component
+class ContactForm extends Component
 {
     public function render()
     {
-        return view('livewire.contac-form');
+        return view('livewire.contact-form.contact-form');
     }
 }
