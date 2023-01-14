@@ -18,9 +18,9 @@ return new class extends Migration
             $table->id();
             $table->string('names');
             $table->string('surnames');
-            $table->string('contact_number');
+            $table->string('contact_number')->nullable();
             $table->string('email_address');
-            $table->string('company');
+            $table->string('company')->nullable();
             $table->string('message');
             $table->smallInteger('status')->default(1);
             $table->string('created_by');

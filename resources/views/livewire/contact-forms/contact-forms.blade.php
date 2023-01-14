@@ -39,7 +39,7 @@
 
                                     <div class="col-12">
                                         <label for="company" class="form-label">Company <span class="text-muted">(Optional)</span></label>
-                                        <input wire:model="company" type="text" class="form-control" id="company" placeholder="Apartment or suite">
+                                        <input wire:model="company" type="text" class="form-control" id="company" placeholder="Company">
                                     </div>
 
                                     <div class="col-12">
