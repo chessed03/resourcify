@@ -53,8 +53,8 @@ class CaseStudyResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('subtitle')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image')
             ])
             ->filters([
