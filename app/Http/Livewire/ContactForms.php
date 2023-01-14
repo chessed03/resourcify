@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ContactForm;
 use Livewire\Component;
 
 class ContactForms extends Component
@@ -34,16 +35,15 @@ class ContactForms extends Component
             'message'       => 'required'
         ]);
 
-
-
-
         ContactForm::create([
-            'nombre'    => $this->nombre,
-            'apellidos' => $this->apellidos,
-            'correo'    => $this->correo
+            'names'          => $this->names,
+            'surnames'       => $this->surnames,
+            'contact_number' => $this->contact_number,
+            'email_address'  => $this->email_address,
+            'company'        => $this->company,
+            'message'        => $this->message,
+            'created_by'     => 'root'
         ]);
-
-
 
         $this->resetInput();
         $this->hydrate();
