@@ -41,7 +41,6 @@
             </button>
         </div>
 
-
         <!-- Marketing messaging and featurettes
         ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -87,8 +86,62 @@
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
 
-
             <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row multiple-items text-center">
+                <div>
+                    <i class="fab fa-5x fa-html5"></i>
+                    <br>
+                    HTML5
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-css3-alt"></i>
+                    <br>
+                    CSS3
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-python"></i>
+                    <br>
+                    Python
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-wordpress"></i>
+                    <br>
+                    wordpress
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-bootstrap"></i>
+                    <br>
+                    Boostrap
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-angular"></i>
+                    <br>
+                    Angular
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-php"></i>
+                    <br>
+                    PHP
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-laravel"></i>
+                    <br>
+                    Laravel
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-react"></i>
+                    <br>
+                    Laravel
+                </div>
+                <div>
+                    <i class="fab fa-5x fa-vuejs"></i>
+                    <br>
+                    Laravel
+                </div>
+            </div>
 
             <hr class="featurette-divider">
 
@@ -117,6 +170,7 @@
             <!-- /END THE FEATURETTES -->
 
         </div><!-- /.container -->
+
 
     </div>
 

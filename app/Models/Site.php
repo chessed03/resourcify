@@ -105,5 +105,22 @@ class Site extends Model
 
     }
 
+    public static function getServices()
+    {
+
+        $result = null;
+
+        $query = Service::where('status', 1)->get();
+
+        if ( $query ) {
+
+            $result = $query;
+
+        }
+
+        return $result;
+
+    }
+
 
 }

@@ -52,9 +52,10 @@ class ContactForms extends Component
             'message'       => 'required'
         ]);
 
-        $uploadFile = $this->files->store('public/files');
 
-        $data = ContactForm::create([
+        $uploadFile = ( $this->files ) ? $this->files->store('public/files') : '';
+
+        $contentMail = ContactForm::create([
             'names'               => $this->names,
             'surnames'            => $this->surnames,
             'contact_number'      => $this->contact_number,
@@ -69,9 +70,7 @@ class ContactForms extends Component
             'created_by'          => 'root'
         ]);
 
-        $contentMail = $data;
-
-        Mail::to( ['chessed03@gmail.com'] )->send( new ContactMail( $contentMail ) );
+        Mail::to( [env('MAIL_TO_ADDRESS')] )->send( new ContactMail( $contentMail ) );
 
         $this->resetInput();
         $this->hydrate();

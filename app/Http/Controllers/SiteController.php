@@ -13,9 +13,11 @@ class SiteController extends Controller
     {
         $carouselImages = Site::getCarouselImages();
 
-        $caseStudies    = Site::getCaseStudies();
+        $services       = Site::getServices();
 
         $languajes      = Site::getLanguages();
+
+        $caseStudies    = Site::getCaseStudies();
 
         return view('site.site', [
             'carouselImages' => $carouselImages,
