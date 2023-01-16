@@ -45,7 +45,47 @@
                                         <input wire:model="company" type="text" class="form-control" id="company" placeholder="Company">
                                     </div>
 
-                                    <div class="col-12">
+                                    <div class="col-6">
+                                        <label for="looking_for" class="form-label">Looking for <span class="text-muted">(Optional)</span></label>
+                                        <select wire:model="looking_for" class="form-select" id="to_start">
+                                            <option selected>Open this select menu</option>
+                                            @foreach( $types as $type)
+                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="to_start" class="form-label">When are you looking to start <span class="text-muted">(Optional)</span></label>
+                                        <select wire:model="to_start" class="form-select" id="to_start">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">Inmediatly</option>
+                                            <option value="2">Within 1 to 2 months</option>
+                                            <option value="3">After 2 months</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="budget" class="form-label">What's your budget <span class="text-muted">(Optional)</span></label>
+                                        <select wire:model="budget" class="form-select" id="to_start">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">Less than USD 15,000</option>
+                                            <option value="2">USD 15,000 - USD 50,000</option>
+                                            <option value="3">USD 100,000</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="files" class="form-label">Attach the file <span class="text-muted">(Optional only zip, 7zip or rar)</span></label>
+                                        <input wire:model="files" type="file" class="form-control" id="files" placeholder="Attach the file">
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="description_project" class="form-label">Describes the project <span class="text-muted">(Optional)</span></label>
+                                        <textarea wire:model="description_project" type="text" class="form-control" id="description_project" placeholder="Describes the project"></textarea>
+                                    </div>
+
+                                    <div class="col-6">
                                         <label for="message" class="form-label">Mesasage</label>
                                         <textarea wire:model="message" type="text" class="form-control" id="message" placeholder="message"></textarea>
                                         @error('message') <span class="error text-danger">{{ $message }}</span> @enderror

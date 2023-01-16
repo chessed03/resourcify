@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string('contact_number')->nullable();
             $table->string('email_address');
             $table->string('company')->nullable();
+            $table->string('looking_for')->nullable();
+            $table->string('to_start')->nullable();
+            $table->string('budget')->nullable();
+            $table->string('files')->nullable();
+            $table->string('description_project')->nullable();
             $table->string('message');
             $table->smallInteger('status')->default(1);
             $table->string('created_by');

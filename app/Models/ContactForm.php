@@ -17,6 +17,11 @@ class ContactForm extends Model
         'contact_number',
         'email_address',
         'company',
+        'looking_for',
+        'to_start',
+        'budget',
+        'files',
+        'description_project',
         'message',
         'status',
         'created_by'
