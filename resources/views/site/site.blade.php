@@ -59,7 +59,7 @@
                         <h2>{{ $service->title }}</h2>
                         <p>{{ $service->subtitle }}</p>
                         <p><a href="{{ route('service', ['id' => $service->id]) }}" class="btn btn-secondary">View details</a></p>
-                        
+
                     </div><!-- /.col-lg-4 -->
 
                 @endforeach
