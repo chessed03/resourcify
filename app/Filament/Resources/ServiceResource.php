@@ -23,8 +23,10 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('description')->required(),
+                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\TextInput::make('subtitle')->required(),
+                Forms\Components\Textarea::make('description')->required(),
+                Forms\Components\FileUpload::make('image')->directory('service-images')->image(),
                 Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled()
             ]);
     }
@@ -33,8 +35,8 @@ class ServiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('description')
+                Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('subtitle')
             ])
             ->filters([
                 //

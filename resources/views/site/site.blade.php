@@ -50,40 +50,20 @@
             <!-- Three columns of text below the carousel -->
             <div class="row">
 
-                @foreach( $languages as $key => $language)
+                @foreach( $services as $service)
 
                     <div class="col-lg-4">
 
-                        <img src="{{ URL::asset("storage/{$language->image_logo}") }}" class="rounded-circle" width="140" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <img src="{{ URL::asset("storage/{$service->image}") ?? '' }}" class="rounded-circle" width="140" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
 
-                        <h2>{{ $language->name }}</h2>
-                        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-                        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                        <h2>{{ $service->title }}</h2>
+                        <p>{{ $service->subtitle }}</p>
+                        <p><a href="{{ route('service', ['id' => $service->id]) }}" class="btn btn-secondary">View details</a></p>
+                        
                     </div><!-- /.col-lg-4 -->
 
                 @endforeach
 
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                    <h2>Heading</h2>
-                    <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                    <h2>Heading</h2>
-                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-                    <h2>Heading</h2>
-                    <p>And lastly this, the third column of representative placeholder content.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
 
             <!-- START THE FEATURETTES -->
@@ -91,7 +71,23 @@
             <hr class="featurette-divider">
 
             <div class="row multiple-items text-center">
-                <div>
+                @foreach( $languages as $language )
+                    <div class="card border-white text-white bg-white">
+                        <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$language->image_logo}") ?? '' }}" width="70px" height="70px" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">{{ $language->name }}</h6>
+                        </div>
+                    </div>
+                @endforeach
+                @foreach( $frameworks as $framework )
+                    <div class="card border-white text-white bg-white">
+                        <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$framework->image_logo}") ?? '' }}" width="70px" height="70px" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">{{ $framework->name }}</h6>
+                        </div>
+                    </div>
+                @endforeach
+                {{--<div>
                     <i class="fab fa-5x fa-html5"></i>
                     <br>
                     HTML5
@@ -140,7 +136,7 @@
                     <i class="fab fa-5x fa-vuejs"></i>
                     <br>
                     Laravel
-                </div>
+                </div>--}}
             </div>
 
             <hr class="featurette-divider">
@@ -152,7 +148,7 @@
                         <h2 class="featurette-heading">{{ $case->title }}<span class="text-muted"> {{ $case->subtitle }}</span></h2>
                         <p class="lead">{{ $case->challenge }}</p>
 
-                        <a href="{{ route('case-study', ['id' => $case->id]) }}" class="btn btn-success" type="button" >Read more</a>
+                        <a href="{{ route('case-study', ['id' => $case->id]) }}" class="btn btn-success">Read more</a>
                     </div>
                     <div class="col-md-5">
 

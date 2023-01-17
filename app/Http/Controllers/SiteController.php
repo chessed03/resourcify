@@ -17,12 +17,16 @@ class SiteController extends Controller
 
         $languajes      = Site::getLanguages();
 
+        $frameworks     = Site::getFrameworks();
+
         $caseStudies    = Site::getCaseStudies();
 
         return view('site.site', [
             'carouselImages' => $carouselImages,
-            'caseStudies'    => $caseStudies,
-            'languages'      => $languajes
+            'services'       => $services,
+            'languages'      => $languajes,
+            'frameworks'     => $frameworks,
+            'caseStudies'    => $caseStudies
         ]);
     }
 
@@ -57,6 +61,13 @@ class SiteController extends Controller
             'languages'  => $languages,
             'frameworks' => $frameworks
         ]);
+    }
+
+    public function service( Request $request )
+    {
+
+        return view('site.service');
+
     }
 
 }

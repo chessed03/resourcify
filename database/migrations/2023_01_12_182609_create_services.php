@@ -16,8 +16,10 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('title');
+            $table->string('subtitle');
+            $table->text('description')->nullable();
+            $table->string('image');
             $table->smallInteger('status')->default(1);
             $table->string('created_by');
             $table->timestamp('created_at')->useCurrent();

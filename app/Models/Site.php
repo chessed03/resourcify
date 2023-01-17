@@ -57,6 +57,23 @@ class Site extends Model
         return $result;
     }
 
+    public static function getFrameworks()
+    {
+
+        $result = null;
+
+        $query = Framework::where('status', 1)->get();
+
+        if ( $query ) {
+
+            $result = $query;
+
+        }
+
+        return $result;
+
+    }
+
     public static function getLanguagesForCaseStudy( $languages )
     {
 
@@ -121,6 +138,5 @@ class Site extends Model
         return $result;
 
     }
-
 
 }
