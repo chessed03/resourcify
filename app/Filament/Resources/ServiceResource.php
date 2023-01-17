@@ -25,9 +25,16 @@ class ServiceResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')->required(),
                 Forms\Components\TextInput::make('subtitle')->required(),
-                Forms\Components\Textarea::make('description')->required(),
+                //Forms\Components\Textarea::make('description')->required(),
+                Forms\Components\Builder::make('description')
+                    ->blocks([
+                        Forms\Components\Builder\Block::make('content')
+                            ->schema([
+                                Forms\Components\RichEditor::make('content')->required(),
+                            ]),
+                    ]),
                 Forms\Components\FileUpload::make('image')->directory('service-images')->image(),
-                Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled()
+                Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }
 

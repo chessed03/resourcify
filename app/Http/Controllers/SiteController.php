@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CaseStudy;
+use App\Models\Service;
 use App\Models\Site;
 use Illuminate\Http\Request;
 
@@ -65,8 +66,13 @@ class SiteController extends Controller
 
     public function service( Request $request )
     {
+        $id      = $request->id;
 
-        return view('site.service');
+        $service = Service::getCaseStudyById( $id );
+        //dd($service->description);
+        return view('site.service', [
+            'service' => $service
+        ]);
 
     }
 

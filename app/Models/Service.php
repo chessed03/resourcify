@@ -11,6 +11,10 @@ class Service extends Model
 
     protected $table    = 'services';
 
+    protected $casts    = [
+        'description' => 'json'
+    ];
+
     protected $fillable = [
         'title',
         'subtitle',
@@ -19,5 +23,10 @@ class Service extends Model
         'status',
         'created_by'
     ];
+
+    public static function getCaseStudyById( $id )
+    {
+        return self::where('id', $id)->first();
+    }
 
 }

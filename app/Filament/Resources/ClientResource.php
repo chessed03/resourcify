@@ -30,7 +30,7 @@ class ClientResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\FileUpload::make('image_logo')->directory('client-images')->image(),
-                Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled()
+                Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }
 

@@ -34,7 +34,7 @@ class ProjectResource extends Resource
                 Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => Project::selectItemsFrameworks() ),
                 Forms\Components\Select::make('languages')->multiple()->options( fn ($record) => Project::selectItemsLanguages() ),
                 Forms\Components\FileUpload::make('image_logo')->directory('project-images')->image(),
-                Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled()
+                Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }
 

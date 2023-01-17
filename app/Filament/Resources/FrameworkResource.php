@@ -33,7 +33,7 @@ class FrameworkResource extends Resource
                 Forms\Components\BelongsToSelect::make('type_id')->relationship('type', 'name')->required(),
                 Forms\Components\BelongsToSelect::make('category_id')->relationship('category', 'name')->required(),
                 Forms\Components\FileUpload::make('image_logo')->directory('framework-images')->image(),
-                Forms\Components\TextInput::make('created_by')->default( 'root' )->disabled()
+                Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }
 
