@@ -25,6 +25,13 @@ class ContactForms extends Component
         ]);
     }
 
+    public function messageAlert( $heading, $text, $icon )
+    {
+
+        $this->emit('message', $heading, $text, $icon);
+
+    }
+
     private function resetInput()
     {
 
@@ -72,6 +79,7 @@ class ContactForms extends Component
 
         Mail::to( [env('MAIL_TO_ADDRESS')] )->send( new ContactMail( $contentMail ) );
 
+        $this->messageAlert('Success!', 'Message send.','success');
         $this->resetInput();
         $this->hydrate();
     }

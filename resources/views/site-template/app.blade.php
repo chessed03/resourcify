@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('site-template/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('site-template/dist/js/jquery-toast/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />
 
     <style>
         .bd-placeholder-img {
@@ -86,6 +87,7 @@
 </main>
 
     <script src="{{ asset('site-template/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('site-template/dist/js/jquery-toast/jquery.toast.min.js') }}"></script>
 
     <script>
             $('.multiple-items').slick({
@@ -125,6 +127,20 @@
     </script>
 
     @livewireScripts
+
+    <script type="text/javascript">
+        window.livewire.on('message', (heading, text, icon) => {
+
+            $.toast({
+                heading: heading,
+                text: text,
+                icon: icon,
+                loader: true,
+                showHideTransition: 'fade',
+                position: 'top-right'
+            });
+        });
+    </script>
 
 </body>
 </html>

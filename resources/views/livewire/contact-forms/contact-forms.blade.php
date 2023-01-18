@@ -93,7 +93,8 @@
 
                             </form>
 
-                            <button type="button" wire:click.prevent="store()" class="w-100 btn btn-primary btn-lg mt-4"> Send</button>
+                            <button wire:target="store" wire:loading.remove type="button" wire:click.prevent="store()" class="w-100 btn btn-primary btn-lg mt-4"> Send</button>
+                            <button wire:target="store" wire:loading type="button" class="w-100 btn btn-primary btn-lg mt-4" disabled><i class="fas fa-circle-notch fa-spin"></i> Proccesing...</button>
 
                         </div>
                     </div>
