@@ -19,7 +19,7 @@
 
             <div class="row align-items-md-stretch">
                 @if( !empty($service->description) )
-                    @foreach( $service->description as $description )
+                    @foreach( $service->description as $key => $description )
                         <div class="col-md-6">
                             <div class="h-100 p-5 bg-light border rounded-3" style="background-image: url({{ asset('site-template/dist/img/5571000.jpg') }})">
                                 {!! $description['data']['content'] !!}

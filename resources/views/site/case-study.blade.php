@@ -63,7 +63,6 @@
                             <img src="{{ URL::asset("storage/{$caseStudy->images[2]}") ?? '' }}" width="100%" height="100%">
                             <hr>
                         @endif
-                        <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
                     </div>
 
                 </div>

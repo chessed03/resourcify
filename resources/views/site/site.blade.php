@@ -38,7 +38,7 @@
                         <img src="{{ URL::asset("storage/{$service->image}") ?? '' }}" class="rounded-circle" width="140px" height="140px" role="img" preserveAspectRatio="xMidYMid slice" alt="{{ $service->title }}">
                         <h2>{{ $service->title }}</h2>
                         <p>{{ $service->subtitle }}</p>
-                        <p><a href="{{ route('service', ['id' => $service->id]) }}" class="btn btn-secondary">View details</a></p>
+                        <p><a href="{{ route('service', ['id' => $service->id . '-' . $service->slug]) }}" class="btn btn-secondary">View details</a></p>
                     </div>
                 @endforeach
             </div>
@@ -67,7 +67,7 @@
                     <div class="col-md-7 {{ ( ($key % 2) == 0 ) ? 'order-md-2' : '' }}">
                         <h2 class="featurette-heading">{{ $case->title }}</h2>
                         <p><h4><span class="text-muted"> {{ $case->subtitle }}</span></h4></p>
-                        <a href="{{ route('case-study', ['id' => $case->id]) }}" class="btn btn-success">Read more</a>
+                        <a href="{{ route('case-study', ['id' => $case->id . '-' . $case->slug]) }}" class="btn btn-success">Read more</a>
                     </div>
                     <div class="col-md-5">
                         <img src="{{ URL::asset("storage/{$case->image}") }}" class="featurette-image img-fluid mx-auto" width="500px" height="500px" role="img" preserveAspectRatio="xMidYMid slice" alt="{{ $case->title }}">

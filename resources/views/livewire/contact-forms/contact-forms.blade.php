@@ -13,7 +13,6 @@
                     <div class="row g-5">
 
                         <div class="col-md-12 col-lg-12">
-                            <h4 class="mb-3">Billing address</h4>
                             <form>
                                 <div class="row g-3">
                                     <div class="col-sm-6">
