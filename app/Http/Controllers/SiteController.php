@@ -12,7 +12,7 @@ class SiteController extends Controller
     {
 
         $tagMetas       = Site::getTagMetas();
-        //dd($tagsMetas->seo_description);
+
         $carouselImages = Site::getCarouselImages();
 
         $services       = Site::getServices();
@@ -24,7 +24,8 @@ class SiteController extends Controller
         $caseStudies    = Site::getCaseStudies();
 
         return view('site.site', [
-            'tagMetas'       => $tagMetas,
+            'descriptions'   => $tagMetas->seo_description,
+            'keywords'       => $tagMetas->seo_keyword,
             'carouselImages' => $carouselImages,
             'services'       => $services,
             'languages'      => $languajes,
@@ -59,16 +60,12 @@ class SiteController extends Controller
 
         }
 
-        $tagMetas = (object)[
-            'seo_description' => $caseStudy->seo_description,
-            'seo_keyword'     => $caseStudy->seo_keyword
-        ];
-
         return view('site.case-study', [
-            'caseStudy'  => $caseStudy,
-            'tagMetas'   => $tagMetas,
-            'languages'  => $languages,
-            'frameworks' => $frameworks
+            'caseStudy'    => $caseStudy,
+            'descriptions' => $caseStudy->seo_description,
+            'keywords'     => $caseStudy->seo_keyword,
+            'languages'    => $languages,
+            'frameworks'   => $frameworks
         ]);
     }
 
@@ -78,14 +75,10 @@ class SiteController extends Controller
 
         $service = Site::getServiceById( $id );
 
-        $tagMetas = (object)[
-            'seo_description' => $service->seo_description,
-            'seo_keyword'     => $service->seo_keyword
-        ];
-
         return view('site.service', [
-            'service'  => $service,
-            'tagMetas' => $tagMetas
+            'service'      => $service,
+            'descriptions' => $service->seo_description,
+            'keywords'     => $service->seo_keyword
         ]);
 
     }

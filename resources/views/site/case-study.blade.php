@@ -1,6 +1,6 @@
 @extends('site-template.app')
 @section('meta')
-    @livewire('meta-tags', ['tagMetas' => $tagMetas])
+    @include('components.meta-tags')
 @endsection()
 @section('content')
 
