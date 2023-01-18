@@ -17,7 +17,6 @@
                 <h3 class="pb-4 mb-4 fst-italic border-bottom">
                     {{ $caseStudy->subtitle }}
                 </h3>
-                <p class="blog-post-meta">{{ \Carbon\Carbon::createFromDate($caseStudy->created_at)->isoFormat('LLLL') }}</p>
                 <article class="blog-post">
                     <h2 class="blog-post-title">Challenge</h2>
                     <p align="justify">{{ $caseStudy->challenge }}</p>
