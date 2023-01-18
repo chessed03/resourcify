@@ -10,7 +10,7 @@
                 </a>
             </header>
 
-            <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="p-5 mb-4 bg-light rounded-3" style="background-image: url({{ asset('site-template/dist/img/banner-service.jpg') }}); height: 30vh">
                 <div class="container-fluid py-5">
                     <h1 class="display-5 fw-bold">{{ $service->title }}</h1>
                     <p class="col-md-8 fs-4">{{ $service->subtitle }}</p>
@@ -21,7 +21,7 @@
                 @if( !empty($service->description) )
                     @foreach( $service->description as $description )
                         <div class="col-md-6">
-                            <div class="h-100 p-5 bg-light border rounded-3">
+                            <div class="h-100 p-5 bg-light border rounded-3" style="background-image: url({{ asset('site-template/dist/img/5571000.jpg') }})">
                                 {!! $description['data']['content'] !!}
                             </div>
                         </div>

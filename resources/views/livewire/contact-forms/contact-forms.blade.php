@@ -6,9 +6,8 @@
                 <div class="col p-4 d-flex flex-column position-static">
 
                     <div class="py-5 text-center">
-                        <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                        <img class="d-block mx-auto mb-4" src="{{ asset('site-template/dist/img/contact.jpeg')  }}" alt="" width="87" height="87">
                         <h2>Contact form</h2>
-                        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
                     </div>
 
                     <div class="row g-5">

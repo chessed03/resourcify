@@ -12,7 +12,9 @@ class CarouselImage extends Model
     protected $table    = 'carousel_images';
 
     protected $fillable = [
-        'name',
+        'title',
+        'slug',
+        'description',
         'image',
         'status',
         'created_by'

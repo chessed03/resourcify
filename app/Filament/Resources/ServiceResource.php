@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class ServiceResource extends Resource
 {
@@ -23,9 +24,12 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\TextInput::make('title')->reactive()
+                    ->afterStateUpdated( function ( \Closure $set, $state ) {
+                        $set('slug', Str::slug( $state ));
+                    })->required(),
+                Forms\Components\TextInput::make('slug')->required(),
                 Forms\Components\TextInput::make('subtitle')->required(),
-                //Forms\Components\Textarea::make('description')->required(),
                 Forms\Components\Builder::make('description')
                     ->blocks([
                         Forms\Components\Builder\Block::make('content')

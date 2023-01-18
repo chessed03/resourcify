@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class CaseStudyResource extends Resource
 {
@@ -28,7 +29,11 @@ class CaseStudyResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\TextInput::make('title')->reactive()
+                    ->afterStateUpdated( function ( \Closure $set, $state ) {
+                        $set('slug', Str::slug( $state ));
+                    })->required(),
+                Forms\Components\TextInput::make('slug')->required(),
                 Forms\Components\TextInput::make('subtitle')->required(),
                 Forms\Components\Textarea::make('challenge')->required(),
                 Forms\Components\Textarea::make('solution')->required(),

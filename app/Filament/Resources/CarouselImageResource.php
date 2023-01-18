@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CarouselImageResource\Pages;
-use App\Filament\Resources\CarouselImageResource\RelationManagers;
 use App\Models\CarouselImage;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -12,6 +11,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class CarouselImageResource extends Resource
 {
@@ -29,9 +29,14 @@ class CarouselImageResource extends Resource
     {
         return $form
             ->schema([
-                    Forms\Components\TextInput::make('name')->required(),
-                    Forms\Components\FileUpload::make('image')->directory('carousel-images')->image(),
-                    Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
+                Forms\Components\TextInput::make('title')->reactive()
+                    ->afterStateUpdated( function ( \Closure $set, $state ) {
+                        $set('slug', Str::slug( $state ));
+                    })->required(),
+                Forms\Components\TextInput::make('slug')->required(),
+                Forms\Components\TextInput::make('description')->required(),
+                Forms\Components\FileUpload::make('image')->directory('carousel-images')->image(),
+                Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }
 
@@ -39,7 +44,7 @@ class CarouselImageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
                 Tables\Columns\ImageColumn::make('image')
             ])
             ->filters([

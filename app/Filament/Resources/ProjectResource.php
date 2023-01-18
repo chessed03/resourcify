@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class ProjectResource extends Resource
 {
@@ -28,7 +29,11 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\TextInput::make('name')->reactive()
+                    ->afterStateUpdated( function ( \Closure $set, $state ) {
+                        $set('slug', Str::slug( $state ));
+                    })->required(),
+                Forms\Components\TextInput::make('slug')->required(),
                 Forms\Components\TextInput::make('description')->required(),
                 Forms\Components\Select::make('developers')->multiple()->options( fn ($record) => Project::selectItemsDevelopers() ),
                 Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => Project::selectItemsFrameworks() ),

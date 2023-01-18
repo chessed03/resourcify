@@ -18,6 +18,7 @@ class CaseStudy extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'subtitle',
         'challenge',
         'solution',

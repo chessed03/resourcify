@@ -13,6 +13,7 @@ class Language extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'type_id',
         'category_id',

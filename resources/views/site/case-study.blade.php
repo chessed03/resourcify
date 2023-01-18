@@ -3,12 +3,10 @@
 
     <div class="container">
 
-        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url({{ asset('site-template/dist/img/banner-industry-tech.jpg') }}); height: 30vh">
             <div class="col-md-6 px-0">
-
                 <h1 class="display-4 fst-italic">{{ $caseStudy->title }}</h1>
                 <p class="lead my-3">{{ $caseStudy->subtitle }}</p>
-
             </div>
         </div>
 
@@ -17,27 +15,35 @@
                 <h3 class="pb-4 mb-4 fst-italic border-bottom">
                     {{ $caseStudy->subtitle }}
                 </h3>
-
+                <p class="blog-post-meta">{{ \Carbon\Carbon::createFromDate($caseStudy->created_at)->isoFormat('LLLL') }}</p>
                 <article class="blog-post">
                     <h2 class="blog-post-title">Challenge</h2>
-                    <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
-
-                    <p>{{ $caseStudy->challenge }}</p>
+                    <p align="justify">{{ $caseStudy->challenge }}</p>
                     <hr>
                     <h2>Solution</h2>
-                    <p>{{ $caseStudy->solution }}</p>
+                    <p align="justify">{{ $caseStudy->solution }}</p>
                     <h3>Tecnhnology</h3>
                     <p></p>
                     <ul>
-                        @foreach( $languages as $language)
-                            <li>{{ $language->name }}</li>
-                        @endforeach
-                        @foreach( $frameworks as $framework)
-                            <li>{{ $framework->name }}</li>
-                        @endforeach
+                        <div class="row multiple-items text-center">
+                            @foreach( $languages as $language)
+                                <div class="card border-white text-white bg-white">
+                                    <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$language->image_logo}") ?? '' }}" width="70px" height="70px" role="img" alt="{{ $language->name }}">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">{{ $language->name }}</h6>
+                                    </div>
+                                </div>
+                            @endforeach
+                            @foreach( $frameworks as $framework)
+                                <div class="card border-white text-white bg-white">
+                                    <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$framework->image_logo}") ?? '' }}" width="70px" height="70px" role="img" alt="{{ $framework->name }}">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-muted">{{ $framework->name }}</h6>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </ul>
-
-
                 </article>
 
             </div>

@@ -16,7 +16,9 @@ return new class extends Migration
     {
         Schema::create('carousel_images', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('description');
             $table->string('image');
             $table->smallInteger('status')->default(1);
             $table->string('created_by');

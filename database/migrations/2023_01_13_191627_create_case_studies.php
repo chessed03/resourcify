@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('case_studies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->string('subtitle');
             $table->text('challenge');
             $table->text('solution');
