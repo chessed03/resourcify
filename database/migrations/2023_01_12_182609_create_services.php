@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('subtitle');
             $table->json('description')->nullable();
             $table->string('image');
+            $table->string('seo_description');
+            $table->string('seo_keyword');
             $table->smallInteger('status')->default(1);
             $table->string('created_by');
             $table->timestamp('created_at')->useCurrent();

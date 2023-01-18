@@ -139,4 +139,19 @@ class Site extends Model
 
     }
 
+    public static function getCaseStudyById( $id )
+    {
+        return CaseStudy::getCaseStudyById( $id );
+    }
+
+    public static function getServiceById( $id )
+    {
+        return Service::getServiceById( $id );
+    }
+
+    public static function getTagMetas()
+    {
+        return Config::getTagsMetasPrincipal();
+    }
+
 }

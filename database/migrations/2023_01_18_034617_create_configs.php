@@ -14,16 +14,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('case_studies', function (Blueprint $table) {
+        Schema::create('configs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug');
-            $table->string('subtitle');
-            $table->text('challenge');
-            $table->text('solution');
-            $table->json('technology');
-            $table->string('image');
-            $table->json('images');
             $table->string('seo_description');
             $table->string('seo_keyword');
             $table->smallInteger('status')->default(1);
@@ -40,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('case_studies');
+        Schema::dropIfExists('configs');
     }
 };

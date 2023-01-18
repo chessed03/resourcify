@@ -1,4 +1,7 @@
 @extends('site-template.app')
+@section('meta')
+    @livewire('meta-tags', ['tagMetas' => $tagMetas])
+@endsection()
 @section('content')
 
     <div>

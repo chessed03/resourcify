@@ -50,6 +50,8 @@ class CaseStudyResource extends Resource
                     ]),
                 Forms\Components\FileUpload::make('image')->directory('case-study-images')->image(),
                 Forms\Components\FileUpload::make('images')->multiple()->directory('case-study-images')->image(),
+                Forms\Components\TextInput::make('seo_description')->required(),
+                Forms\Components\TextInput::make('seo_keyword')->required(),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled(),
             ]);
     }

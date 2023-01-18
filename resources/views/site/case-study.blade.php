@@ -1,4 +1,7 @@
 @extends('site-template.app')
+@section('meta')
+    @livewire('meta-tags', ['tagMetas' => $tagMetas])
+@endsection()
 @section('content')
 
     <div class="container">
@@ -9,7 +12,6 @@
                 <p class="lead my-3">{{ $caseStudy->subtitle }}</p>
             </div>
         </div>
-
         <div class="row g-5">
             <div class="col-md-8">
                 <h3 class="pb-4 mb-4 fst-italic border-bottom">
@@ -24,30 +26,30 @@
                     <p align="justify">{{ $caseStudy->solution }}</p>
                     <h3>Tecnhnology</h3>
                     <p></p>
-                    <ul>
-                        <div class="row multiple-items text-center">
+                    <div class="row">
+                        <div class="col-md-6">
                             @foreach( $languages as $language)
                                 <div class="card border-white text-white bg-white">
                                     <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$language->image_logo}") ?? '' }}" width="70px" height="70px" role="img" alt="{{ $language->name }}">
-                                    <div class="card-body">
+                                    <div class="card-body text-center">
                                         <h6 class="card-title text-muted">{{ $language->name }}</h6>
                                     </div>
                                 </div>
                             @endforeach
+                        </div>
+                        <div class="col-md-6">
                             @foreach( $frameworks as $framework)
                                 <div class="card border-white text-white bg-white">
                                     <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$framework->image_logo}") ?? '' }}" width="70px" height="70px" role="img" alt="{{ $framework->name }}">
-                                    <div class="card-body">
+                                    <div class="card-body text-center">
                                         <h6 class="card-title text-muted">{{ $framework->name }}</h6>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-                    </ul>
+                    </div>
                 </article>
-
             </div>
-
             <div class="col-md-4">
                 <div class="position-sticky" style="top: 2rem;">
                     <div class="p-4 mb-3 bg-light rounded">

@@ -25,6 +25,8 @@ class CaseStudy extends Model
         'technology',
         'image',
         'images',
+        'seo_description',
+        'seo_keyword',
         'status',
         'created_by'
     ];

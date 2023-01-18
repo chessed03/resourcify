@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CaseStudy;
-use App\Models\Service;
 use App\Models\Site;
 use Illuminate\Http\Request;
 
@@ -12,6 +10,9 @@ class SiteController extends Controller
 
     public function site( Request $request)
     {
+
+        $tagMetas       = Site::getTagMetas();
+        //dd($tagsMetas->seo_description);
         $carouselImages = Site::getCarouselImages();
 
         $services       = Site::getServices();
@@ -23,6 +24,7 @@ class SiteController extends Controller
         $caseStudies    = Site::getCaseStudies();
 
         return view('site.site', [
+            'tagMetas'       => $tagMetas,
             'carouselImages' => $carouselImages,
             'services'       => $services,
             'languages'      => $languajes,
@@ -35,7 +37,7 @@ class SiteController extends Controller
     {
         $id         = $request->id;
 
-        $caseStudy  = CaseStudy::getCaseStudyById( $id );
+        $caseStudy  = Site::getCaseStudyById( $id );
 
         $languages  = [];
 
@@ -57,8 +59,14 @@ class SiteController extends Controller
 
         }
 
+        $tagMetas = (object)[
+            'seo_description' => $caseStudy->seo_description,
+            'seo_keyword'     => $caseStudy->seo_keyword
+        ];
+
         return view('site.case-study', [
             'caseStudy'  => $caseStudy,
+            'tagMetas'   => $tagMetas,
             'languages'  => $languages,
             'frameworks' => $frameworks
         ]);
@@ -68,10 +76,16 @@ class SiteController extends Controller
     {
         $id      = $request->id;
 
-        $service = Service::getCaseStudyById( $id );
-        //dd($service->description);
+        $service = Site::getServiceById( $id );
+
+        $tagMetas = (object)[
+            'seo_description' => $service->seo_description,
+            'seo_keyword'     => $service->seo_keyword
+        ];
+
         return view('site.service', [
-            'service' => $service
+            'service'  => $service,
+            'tagMetas' => $tagMetas
         ]);
 
     }

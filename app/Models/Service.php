@@ -21,11 +21,13 @@ class Service extends Model
         'subtitle',
         'description',
         'image',
+        'seo_description',
+        'seo_keyword',
         'status',
         'created_by'
     ];
 
-    public static function getCaseStudyById( $id )
+    public static function getServiceById( $id )
     {
         return self::where('id', $id)->first();
     }
