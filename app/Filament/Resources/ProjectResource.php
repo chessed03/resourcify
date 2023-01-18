@@ -34,11 +34,23 @@ class ProjectResource extends Resource
                         $set('slug', Str::slug( $state ));
                     })->required(),
                 Forms\Components\TextInput::make('slug')->required(),
-                Forms\Components\TextInput::make('description')->required(),
-                Forms\Components\Select::make('developers')->multiple()->options( fn ($record) => Project::selectItemsDevelopers() ),
+                Forms\Components\Textarea::make('description')->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ])->required(),
+                Forms\Components\Select::make('developers')->multiple()->options( fn ($record) => Project::selectItemsDevelopers() )->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => Project::selectItemsFrameworks() ),
                 Forms\Components\Select::make('languages')->multiple()->options( fn ($record) => Project::selectItemsLanguages() ),
-                Forms\Components\FileUpload::make('image_logo')->directory('project-images')->image(),
+                Forms\Components\FileUpload::make('image_logo')->directory('project-images')->image()->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }

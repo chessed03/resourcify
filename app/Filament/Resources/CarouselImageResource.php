@@ -34,8 +34,16 @@ class CarouselImageResource extends Resource
                         $set('slug', Str::slug( $state ));
                     })->required(),
                 Forms\Components\TextInput::make('slug')->required(),
-                Forms\Components\TextInput::make('description')->required(),
-                Forms\Components\FileUpload::make('image')->directory('carousel-images')->image(),
+                Forms\Components\Textarea::make('description')->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ])->required(),
+                Forms\Components\FileUpload::make('image')->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ])->directory('carousel-images')->image(),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }

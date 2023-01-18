@@ -32,8 +32,16 @@ class DeveloperResource extends Resource
                 Forms\Components\TextInput::make('surnames')->required(),
                 Forms\Components\TextInput::make('profession')->required(),
                 Forms\Components\TextInput::make('description')->required(),
-                Forms\Components\Select::make('languages')->multiple()->options( fn ($record) => Developer::selectItemsLanguages() ),
-                Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => Developer::selectItemsFrameworks() ),
+                Forms\Components\Select::make('languages')->multiple()->options( fn ($record) => Developer::selectItemsLanguages() )->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
+                Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => Developer::selectItemsFrameworks() )->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }

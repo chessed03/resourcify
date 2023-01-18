@@ -34,7 +34,11 @@ class TypeResource extends Resource
                         $set('slug', Str::slug( $state ));
                     })->required(),
                 Forms\Components\TextInput::make('slug')->required(),
-                Forms\Components\FileUpload::make('image_logo')->directory('type-images')->image(),
+                Forms\Components\FileUpload::make('image_logo')->directory('type-images')->image()->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }

@@ -34,10 +34,18 @@ class LanguageResource extends Resource
                         $set('slug', Str::slug( $state ));
                     })->required(),
                 Forms\Components\TextInput::make('slug')->required(),
-                Forms\Components\TextInput::make('description')->required(),
+                Forms\Components\Textarea::make('description')->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ])->required(),
                 Forms\Components\BelongsToSelect::make('type_id')->relationship('type', 'name')->required(),
                 Forms\Components\BelongsToSelect::make('category_id')->relationship('category', 'name')->required(),
-                Forms\Components\FileUpload::make('image_logo')->directory('language-images')->image(),
+                Forms\Components\FileUpload::make('image_logo')->directory('language-images')->image()->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()
             ]);
     }

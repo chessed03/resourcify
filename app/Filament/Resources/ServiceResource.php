@@ -36,8 +36,16 @@ class ServiceResource extends Resource
                             ->schema([
                                 Forms\Components\RichEditor::make('content')->required(),
                             ]),
+                    ])->columnSpan([
+                        'sm'  => 2,
+                        'xl'  => 2,
+                        '2xl' => 2,
                     ]),
-                Forms\Components\FileUpload::make('image')->directory('service-images')->image(),
+                Forms\Components\FileUpload::make('image')->directory('service-images')->image()->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\TextInput::make('seo_description')->required(),
                 Forms\Components\TextInput::make('seo_keyword')->required(),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled()

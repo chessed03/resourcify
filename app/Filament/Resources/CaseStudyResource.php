@@ -35,8 +35,16 @@ class CaseStudyResource extends Resource
                     })->required(),
                 Forms\Components\TextInput::make('slug')->required(),
                 Forms\Components\TextInput::make('subtitle')->required(),
-                Forms\Components\Textarea::make('challenge')->required(),
-                Forms\Components\Textarea::make('solution')->required(),
+                Forms\Components\Textarea::make('challenge')->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ])->required(),
+                Forms\Components\Textarea::make('solution')->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ])->required(),
                 Forms\Components\Builder::make('technology')
                     ->blocks([
                         Forms\Components\Builder\Block::make('languages')
@@ -47,9 +55,21 @@ class CaseStudyResource extends Resource
                             ->schema([
                                 Forms\Components\Select::make('frameworks')->multiple()->options( fn ($record) => CaseStudy::selectItemsFrameworks() ),
                             ]),
+                    ])->columnSpan([
+                        'sm'  => 2,
+                        'xl'  => 2,
+                        '2xl' => 2,
                     ]),
-                Forms\Components\FileUpload::make('image')->directory('case-study-images')->image(),
-                Forms\Components\FileUpload::make('images')->multiple()->directory('case-study-images')->image(),
+                Forms\Components\FileUpload::make('image')->directory('case-study-images')->image()->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
+                Forms\Components\FileUpload::make('images')->multiple()->directory('case-study-images')->image()->columnSpan([
+                    'sm'  => 2,
+                    'xl'  => 2,
+                    '2xl' => 2,
+                ]),
                 Forms\Components\TextInput::make('seo_description')->required(),
                 Forms\Components\TextInput::make('seo_keyword')->required(),
                 Forms\Components\Hidden::make('created_by')->default( 'root' )->disabled(),

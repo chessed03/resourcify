@@ -30,7 +30,7 @@ class Site extends Model
     {
         $result = null;
 
-        $query = CaseStudy::where('status', 1)->latest()->get()->take(4);
+        $query = CaseStudy::where('status', 1)->latest()->take(4)->get();
 
         if ( $query ) {
 
