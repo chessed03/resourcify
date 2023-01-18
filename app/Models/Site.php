@@ -154,4 +154,19 @@ class Site extends Model
         return Config::getTagsMetasPrincipal();
     }
 
+    public static function getClients()
+    {
+        $result = null;
+
+        $query = Client::where('status', 1)->get();
+
+        if ( $query ) {
+
+            $result = $query;
+
+        }
+
+        return $result;
+    }
+
 }

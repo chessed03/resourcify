@@ -36,6 +36,7 @@
 
         <div class="container marketing">
             <div class="row">
+                <h6 class="text-muted" id="site-services">Services</h6>
                 @foreach( $services as $service)
                     <div class="col-lg-4">
                         <img src="{{ URL::asset("storage/{$service->image}") ?? '' }}" class="rounded-circle" width="140px" height="140px" role="img" preserveAspectRatio="xMidYMid slice" alt="{{ $service->title }}">
@@ -46,6 +47,7 @@
                 @endforeach
             </div>
             <hr class="featurette-divider">
+            <h6 class="text-muted" id="site-technologies">Technologies</h6>
             <div class="row multiple-items text-center">
                 @foreach( $languages as $language )
                     <div class="card border-white text-white bg-white">
@@ -65,6 +67,7 @@
                 @endforeach
             </div>
             <hr class="featurette-divider">
+            <h6 class="text-muted" id="site-study-cases">Study cases</h6>
             @foreach( $caseStudies as $key => $case )
                 <div class="row featurette">
                     <div class="col-md-7 {{ ( ($key % 2) == 0 ) ? 'order-md-2' : '' }}">
@@ -77,6 +80,18 @@
                     </div>
                 </div>
             @endforeach
+            <hr class="featurette-divider">
+            <h6 class="text-muted" id="site-clients">Clients</h6>
+            <div class="row multiple-items text-center">
+                @foreach( $clients as $client )
+                    <div class="card border-white text-white bg-white">
+                        <img class="mx-auto d-block text-muted" src="{{ URL::asset("storage/{$client->image_logo}") ?? '' }}" width="70px" height="70px" role="img" alt="{{ $language->name }}">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted">{{ $client->name }}</h6>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
             <hr class="featurette-divider">
         </div>
     </div>

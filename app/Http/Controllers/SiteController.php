@@ -23,6 +23,8 @@ class SiteController extends Controller
 
         $caseStudies    = Site::getCaseStudies();
 
+        $clients        = Site::getClients();
+
         return view('site.site', [
             'descriptions'   => $tagMetas->seo_description,
             'keywords'       => $tagMetas->seo_keyword,
@@ -30,7 +32,8 @@ class SiteController extends Controller
             'services'       => $services,
             'languages'      => $languajes,
             'frameworks'     => $frameworks,
-            'caseStudies'    => $caseStudies
+            'caseStudies'    => $caseStudies,
+            'clients'        => $clients
         ]);
     }
 
