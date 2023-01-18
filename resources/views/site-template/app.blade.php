@@ -33,6 +33,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('site-template/dist/site/carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('site-template/dist/site/features.css') }}" rel="stylesheet">
 
     <!-- fontaesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -69,6 +70,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#site-clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#site-work">How we work?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#site-payments">Payments</a>
                     </li>
                 </ul>
                 <form class="d-flex">
